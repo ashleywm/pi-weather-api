@@ -1,0 +1,14 @@
+# Node modules
+node_modules
+
+# Adonis directory for storing tmp files
+tmp
+
+# Environment variables, never commit this file
+.env
+
+## VSCode
+*.code-workspace
+
+# The development sqlite file
+database/development.sqlite
