@@ -11,4 +11,4 @@ tmp
 *.code-workspace
 
 # The development sqlite file
-database/development.sqlite
+*.sqlite
