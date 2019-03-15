@@ -24,11 +24,16 @@ These instructions will get you a copy of the project up and running on your loc
 ```
  npm install
 ```
-3. Start local development server
+3. Create a .env file, see [.env.example](.env.example)
+
+3. Run migrations
+```
+ adonis migration:run
+```
+5. Start local development server
 ```
  adonis serve --dev
 ```
-
 
 ## Built With
 
@@ -37,6 +42,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details
 
 
