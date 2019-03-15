@@ -17,6 +17,9 @@
 const Route = use('Route')
 
 Route.group(() => {
+  Route.get('/stations', 'StationController.read')
+  Route.get('/stations/:id', 'StationController.read')
+  Route.post('/stations', 'StationController.create').validator('PostStation')
   Route.get('/sensors', 'SensorController.read')
   Route.get('/sensors/:id', 'SensorController.read')
   Route.post('/sensors', 'SensorController.create').validator('PostSensors')

@@ -1,14 +1,12 @@
 'use strict'
 const Logger = use('Logger')
 
-class PostSensors {
+class PostStation {
   get rules () {
     return {
-      name: 'required|string',
+      name: 'required|string|unique:stations',
       description: 'string',
-      location: 'string',
-      hardware_address: 'required|unique:sensors',
-      station_id: 'required|exists:stations,id'
+      location: 'string'
     }
   }
 
@@ -18,4 +16,4 @@ class PostSensors {
   }
 }
 
-module.exports = PostSensors
+module.exports = PostStation

@@ -11,6 +11,7 @@ class SensorSchema extends Schema {
       table.string('description').nullable()
       table.string('location')
       table.string('hardware_address').nullable().unique()
+      table.integer('station_id').references('id').inTable('station')
       table.timestamps()
     })
   }

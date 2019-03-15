@@ -6,7 +6,7 @@ class ReadingController {
 
     async read ({ params }) {
         if (params.id) {
-        return await Reading.find(params.id)
+            return await Reading.find(params.id)
         }
         return await Reading.all()
     }
