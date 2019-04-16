@@ -4,8 +4,8 @@
 const Model = use('Model')
 
 class Sensor extends Model {
-    readings () {
-        return this.hasMany('App/Models/Reading')
+    measurements () {
+        return this.hasMany('App/Models/Measurement')
     }
 }
 
