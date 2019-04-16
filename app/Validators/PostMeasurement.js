@@ -1,7 +1,7 @@
 'use strict'
 const Logger = use('Logger')
 
-class PostReading {
+class PostMeasurement {
   get rules () {
     return {
       temperature: 'number',
@@ -17,4 +17,4 @@ class PostReading {
   }
 }
 
-module.exports = PostReading
+module.exports = PostMeasurement

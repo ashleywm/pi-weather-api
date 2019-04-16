@@ -3,9 +3,9 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class ReadingSchema extends Schema {
+class MeasurementSchema extends Schema {
   up () {
-    this.create('readings', (table) => {
+    this.create('measurements', (table) => {
       table.increments()
       table.decimal('temperature').comment('Kelvin').nullable()
       table.decimal('pressure').comment('Pascal').nullable()
@@ -20,4 +20,4 @@ class ReadingSchema extends Schema {
   }
 }
 
-module.exports = ReadingSchema
+module.exports = MeasurementSchema
