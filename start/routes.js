@@ -18,12 +18,15 @@ const Route = use('Route')
 
 Route.group(() => {
   Route.get('/stations', 'StationController.read')
-  Route.get('/stations/:id', 'StationController.read')
+  Route.get('/stations/:station_id', 'StationController.read')
   Route.post('/stations', 'StationController.create').validator('PostStation')
-  Route.get('/sensors', 'SensorController.read')
-  Route.get('/sensors/:id', 'SensorController.read')
-  Route.post('/sensors', 'SensorController.create').validator('PostSensors')
-  Route.get('/measurements', 'MeasurementController.read')
-  Route.get('/measurements/:id', 'MeasurementController.read')
-  Route.post('/measurements', 'MeasurementController.create').validator('PostMeasurement')
+
+  Route.get('/stations/:station_id/sensors', 'SensorController.read')
+  Route.get('/stations/:station_id/sensors/:sensor_id', 'SensorController.read')
+  Route.post('/stations/:station_id/sensors', 'SensorController.create').validator('PostSensors')
+
+  Route.get('/stations/:station_id/measurements', 'MeasurementController.read')
+  Route.get('/stations/:station_id/sensors/:sensor_id/measurements', 'MeasurementController.read')
+  Route.get('/stations/:station_id/sensors/:sensor_id/measurements/:measurement_id', 'MeasurementController.read')
+  Route.post('/stations/:station_id/sensors/:sensor_id/measurements', 'MeasurementController.create').validator('PostMeasurement')
 }).prefix('/v1')

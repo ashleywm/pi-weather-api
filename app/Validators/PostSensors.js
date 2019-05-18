@@ -7,8 +7,7 @@ class PostSensors {
       name: 'required|string',
       description: 'string',
       location: 'string',
-      hardware_address: 'required|unique:sensors',
-      station_id: 'required|exists:stations,id'
+      hardware_address: 'required'
     }
   }
 

@@ -6,8 +6,7 @@ class PostMeasurement {
     return {
       temperature: 'number',
       pressure: 'number',
-      humidity: 'number',
-      sensor_id: 'required|exists:sensors,id'
+      humidity: 'number'
     }
   }
 

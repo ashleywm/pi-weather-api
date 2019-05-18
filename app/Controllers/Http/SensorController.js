@@ -1,25 +1,35 @@
 'use strict'
 
 const Sensor = use('App/Models/Sensor')
+const Station = use('App/Models/Station')
 
 class SensorController {
 
     async read ({ params }) {
-        if (params.id) {
-            return await Sensor.find(params.id)
+        if (params.station_id && params.sensor_id) {
+            return await Station.query().where('id', params.station_id).with('sensors', (builder) => {
+                builder.where('id', params.sensor_id)
+            }).first()
         }
-        return await Sensor.all()
+
+        if (params.station_id) {
+            return await Station.query().with('sensors').where('id', params.station_id).first()
+        }
     }
 
-    async create ({ request }) {
-        const {name, description, location, hardware_address, station_id} = request.only(['name', 'description', 'location', 'hardware_address', 'station_id'])
+    async create ({ request, params, response }) {
+        const {name, description, location, hardware_address} = request.only(['name', 'description', 'location', 'hardware_address'])
+
+        if (!params.station_id || !Station.find(params.station_id)) {
+            return response.status(404).send("Station not found")
+        }
 
         const sensor = new Sensor()
         sensor.name = name
         sensor.description = description
         sensor.location = location
         sensor.hardware_address = hardware_address
-        sensor.station_id = station_id
+        sensor.station_id = params.station_id
     
         await sensor.save()
     
